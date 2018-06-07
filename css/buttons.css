@@ -43,7 +43,8 @@
 }
 
 body {
-    background-color: rgb(36, 34, 33);
+	background: linear-gradient(-120deg, #850066, #000068);
+	height: 100vh;
 }
 
 * {
