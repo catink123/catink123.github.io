@@ -8,7 +8,8 @@
 	font-family: 'Calibri';
 	font-size: 1.25em;
 	font-weight: bold;
-    margin: 5px;
+	margin: 5px;
+	user-select: none;
 }
 
 .kshr-btn-wide:hover {
@@ -31,7 +32,8 @@
 	font-family: 'Calibri';
 	font-size: 1.25em;
 	font-weight: bold;
-    margin: 5px;
+	margin: 5px;
+	user-select: none;
 }
 
 .kshr-btn:hover {
