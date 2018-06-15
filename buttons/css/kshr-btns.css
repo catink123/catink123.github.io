@@ -1,0 +1,45 @@
+.kshr-btn-wide {
+	border: 2px solid rgb(139, 0, 0);
+	color: rgb(216, 216, 216);
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 10px 15px;
+	transition-duration: 0.15s;
+	font-family: 'Calibri';
+	font-size: 1.25em;
+	font-weight: bold;
+    margin: 5px;
+}
+
+.kshr-btn-wide:hover {
+	background-color: rgb(139, 0, 0);
+	color: white;
+}
+
+.kshr-btn-wide:active {
+	border: 2px solid rgb(255, 0, 0);
+	transform: scale(0.95);
+}
+
+.kshr-btn {
+	border: 2px solid rgb(139, 0, 0);
+	color: rgb(216, 216, 216);
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 5px 10px;
+	transition-duration: 0.15s;
+	font-family: 'Calibri';
+	font-size: 1.25em;
+	font-weight: bold;
+    margin: 5px;
+}
+
+.kshr-btn:hover {
+	background-color: rgb(139, 0, 0);
+	color: white;
+}
+
+.kshr-btn:active {
+	border: 2px solid rgb(255, 0, 0);
+	transform: scale(0.95);
+}
