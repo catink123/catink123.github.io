@@ -10,6 +10,7 @@
 	font-weight: bold;
 	margin: 5px;
 	user-select: none;
+	outline: none;
 }
 
 .kshr-btn-wide:hover {
@@ -34,6 +35,7 @@
 	font-weight: bold;
 	margin: 5px;
 	user-select: none;
+	outline: none;
 }
 
 .kshr-btn:hover {
