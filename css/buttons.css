@@ -3,5 +3,10 @@
 }
 
 .btn2 {
-	filter: hue-rotate(50deg);
+	filter: hue-rotate(270deg) brightness(125%);
 }
+
+body {
+	background-color: rgb(19, 19, 19);
+}
+
