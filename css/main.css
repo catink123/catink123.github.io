@@ -40,6 +40,10 @@ a:hover {
     color: black;
 }
 
+a:active {
+    background-color: #b7b7b7;
+}
+
 h1 {
     font-size: 3em;
     color: white;
