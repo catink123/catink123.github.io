@@ -87,3 +87,27 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+@media (min-width: 979px) {
+    /* Large desktop */
+    .container {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    /* Portrait tablet to landscape and desktop */
+    .container {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+}
+
+@media (max-width: 767px) { 
+    /* Landscape phone to portrait tablet */
+    .container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
