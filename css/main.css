@@ -1,6 +1,7 @@
 body {
     font-family: "Calibri";
     background: linear-gradient(180deg, #006d2f, #00ca57);
+    background-attachment: fixed;
     margin: 0;
 }
 
