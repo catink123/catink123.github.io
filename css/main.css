@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+* {
+    outline: none;
+}
+
 nav ul, footer ul {
     padding: 0px;
     list-style: none;
