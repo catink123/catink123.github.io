@@ -89,3 +89,53 @@
 	transform: translateY(2px);
 	box-shadow: 0 1px rgb(0, 139, 0);
 }
+
+.kshr-btn-wide-transparent {
+	border: 2px solid rgba(0, 139, 0, 0);
+	color: rgb(216, 216, 216);
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 10px 15px;
+	transition-duration: 0.15s;
+	font-family: 'Calibri';
+	font-size: 1.25em;
+	font-weight: bold;
+	margin: 5px;
+	user-select: none;
+	outline: none;
+}
+
+.kshr-btn-wide-transparent:hover {
+	background-color: rgba(0, 139, 0, 0.5);
+	color: white;
+}
+
+.kshr-btn-wide-transparent:active {
+	#border: 2px solid rgb(0, 255, 0, 0.5);
+	background-color: rgba(0, 255, 0, 0.5);
+}
+
+.kshr-btn-transparent {
+	border: 2px solid rgba(0, 139, 0, 0);
+	color: rgb(216, 216, 216);
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 5px 10px;
+	transition-duration: 0.15s;
+	font-family: 'Calibri';
+	font-size: 1.25em;
+	font-weight: bold;
+	margin: 5px;
+	user-select: none;
+	outline: none;
+}
+
+.kshr-btn-transparent:hover {
+	background-color: rgba(0, 139, 0, 0.5);
+	color: white;
+}
+
+.kshr-btn-transparent:active {
+	#border: 2px solid rgb(0, 255, 0, 0.5);
+	background-color: rgba(0, 255, 0, 0.5);
+}
