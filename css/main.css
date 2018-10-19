@@ -24,7 +24,22 @@ nav ul li, footer ul li {
     display: inline-block;
 }
 
+.menu {
+    height: 63px;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a {
     text-decoration: none;
     color: white;
     margin: 0;
@@ -35,12 +50,12 @@ a {
     font-size: 1.2em;
 }
 
-a:hover {
+.menu a:hover {
     background-color: white;
     color: black;
 }
 
-a:active {
+.menu a:active {
     background-color: #b7b7b7;
 }
 
