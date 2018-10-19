@@ -1,5 +1,5 @@
 function link (path) {
-    $(".container").load(path + " .container");
+    $(".blurb").load(path + " .blurb");
 }
 
 /* function mute () {
