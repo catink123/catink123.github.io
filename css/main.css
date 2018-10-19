@@ -4,9 +4,6 @@ body {
     margin: 0;
 }
 
-.container {
-}
-
 nav ul, footer ul {
     padding: 0px;
     list-style: none;
@@ -29,7 +26,7 @@ nav ul li, footer ul li {
     border-bottom: #00ca5747 2px solid;
 }
 
-::-webkit-scrollbar { 
+.menu::-webkit-scrollbar { 
     display: none; 
 }
 
