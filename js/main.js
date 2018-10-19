@@ -1,7 +1,7 @@
-function click () {
-    
+function link (path) {
+    $("#container").load(path + " #container");
 }
 
-function mute () {
+/* function mute () {
     document.getElementById('player').muted = !document.getElementById('player').muted;
-}
+} */
