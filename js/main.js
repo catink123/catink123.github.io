@@ -1,7 +1,7 @@
 function link (path) {
-    $(".blurb").fadeOut(300, function () {
-        $(".blurb").load(path + " .blurb", function () {
-            $(".blurb").fadeIn(300);
+    $(".container").fadeOut(300, function () {
+        $(".container").load(path + " .blurb", function () {
+            $(".container").fadeIn(300);
         });
     });
 }
