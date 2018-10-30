@@ -13,6 +13,29 @@ Contains:
 Created by Catink123
 */
 
+.kshr-txtbox {
+	border: 0.1em solid rgb(0, 139, 0);
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-family: 'Calibri';
+	font-size: 1.25em;
+	font-weight: bold;
+	background-color: transparent;
+	color: white;
+	transition-duration: 0.15s;
+	margin: 5px;
+}
+
+.kshr-txtbox:hover {
+	background-color: rgb(0, 139, 0);
+}
+
+.kshr-txtbox:focus {
+	color: black;
+	background-color: white;
+	border: 0.1em solid rgb(0, 255, 0);
+}
+
 .kshr-prgbar {
 	border: 0.1em solid rgb(0, 139, 0);
 	border-radius: 5px;
