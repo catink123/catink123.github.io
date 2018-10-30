@@ -1,4 +1,48 @@
-/* Created by Catink123 */
+/* 
+Catink123's kshr-ctrls library
+
+###
+Contains:
+	Buttons:
+		Normal.
+		Flat.
+		Transparent.
+	Progress Bar.
+###
+
+Created by Catink123
+*/
+
+.kshr-prgbar {
+	border: 0.1em solid rgb(0, 139, 0);
+	border-radius: 5px;
+	padding: 2px 3px 3px 2px;
+	height: 38px;
+	margin: 5px;
+}
+
+.kshr-prgbar[value]::-webkit-progress-bar {
+	background-color: transparent;
+}
+
+.kshr-prgbar[value]::-webkit-progress-value {
+	background-color:rgb(0, 255, 0);
+	border-radius: 2px;
+
+}
+
+.kshr-prgbar:not([value])::-webkit-progress-bar {
+	background-color:rgba(0, 255, 0, .5);
+	border-radius: 2px;
+}
+
+.kshr-wide_btn {
+	padding: 10px 15px !important;
+}
+
+.kshr-wide_prgbar {
+	height: 48px !important;
+}
 
 .kshr-btn-wide {
 	border: 2px solid rgb(0, 139, 0);
