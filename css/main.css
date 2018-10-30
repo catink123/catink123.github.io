@@ -27,8 +27,9 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
-    opacity: .05;
+    opacity: .15;
     filter: hue-rotate(110deg) saturate(2);
+    z-index: -10;
 }
 
 .flip {
