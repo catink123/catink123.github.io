@@ -27,7 +27,7 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
-    opacity: .2;
+    opacity: .05;
     filter: hue-rotate(110deg) saturate(2);
 }
 
