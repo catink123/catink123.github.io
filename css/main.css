@@ -23,6 +23,20 @@ body {
     top: 45px;
 }
 
+.koshka {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: .2;
+    filter: hue-rotate(110deg) saturate(2);
+}
+
+.flip {
+    left: 0;
+    filter: invert(1) hue-rotate(-65deg) saturate(2);
+    transform: scaleX(-1);
+}
+
 nav ul, footer ul {
     padding: 0px;
     list-style: none;
