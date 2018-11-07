@@ -14,6 +14,33 @@ Contains:
 Created by Catink123
 */
 
+.kshr-slider {
+	-webkit-appearance: none;
+	background: transparent;
+	padding: 2px;
+	height: 31px;
+	border-radius: 5px;
+	border: 2px solid rgb(0, 139, 0);
+	transition-duration: .15s;
+}
+
+.kshr-slider:hover {
+	background: rgb(0, 139, 0);
+}
+
+.kshr-slider:active {
+	border: 2px solid rgb(0, 255, 0);
+}
+
+.kshr-slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 31px;
+	width: 15px;
+	background: rgb(0, 255, 0);
+	border-radius: 2px;
+	margin: 0;
+}
+
 .kshr-txtbox {
 	border: 0.1em solid rgb(0, 139, 0);
 	padding: 5px 10px;
