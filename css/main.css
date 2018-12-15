@@ -57,11 +57,11 @@ nav ul li, footer ul li {
     height: 43px;
     overflow: scroll;
     white-space: nowrap;
-    border-bottom: #00ca5747 2px solid;
+    border-bottom: rgba(0, 202, 87, 0.28) 2px solid;
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: #0071319c;
+    background-color: rgba(0, 113, 49, 0.61);
     -ms-overflow-style: none;
 }
 
