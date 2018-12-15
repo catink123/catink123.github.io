@@ -62,6 +62,7 @@ nav ul li, footer ul li {
     width: 100%;
     top: 0;
     background-color: #0071319c;
+    -ms-overflow-style: none;
 }
 
 .menu::-webkit-scrollbar { 
