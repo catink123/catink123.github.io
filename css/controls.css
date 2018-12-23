@@ -1,9 +1,9 @@
 .btn1 {
-	filter: hue-rotate(30deg);
+	--color: 150;
 }
 
 .btn2 {
-	filter: hue-rotate(70deg);
+	--color: 190;
 }
 
 body {
