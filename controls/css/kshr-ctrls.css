@@ -20,29 +20,29 @@ Created by Catink123
 	padding: 2px;
 	height: 31px;
 	border-radius: 5px;
-	border: 2px solid rgb(0, 139, 0);
+	border: 2px solid hsl(var(--color), 100%, 30%);
 	transition-duration: .15s;
 }
 
 .kshr-slider:hover {
-	background: rgb(0, 139, 0);
+	background: hsl(var(--color), 100%, 30%);
 }
 
 .kshr-slider:active {
-	border: 2px solid rgb(0, 255, 0);
+	border: 2px solid hsl(var(--color), 100%, 50%);
 }
 
 .kshr-slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	height: 31px;
 	width: 15px;
-	background: rgb(0, 255, 0);
+	background: hsl(var(--color), 100%, 50%);
 	border-radius: 2px;
 	margin: 0;
 }
 
 .kshr-txtbox {
-	border: 0.1em solid rgb(0, 139, 0);
+	border: 0.1em solid hsl(var(--color), 100%, 30%);
 	padding: 5px 10px;
 	border-radius: 5px;
 	font-family: 'Calibri';
@@ -55,17 +55,17 @@ Created by Catink123
 }
 
 .kshr-txtbox:hover {
-	background-color: rgb(0, 139, 0);
+	background-color: hsl(var(--color), 100%, 30%);
 }
 
 .kshr-txtbox:focus {
 	color: black;
 	background-color: white;
-	border: 0.1em solid rgb(0, 255, 0);
+	border: 0.1em solid hsl(var(--color), 100%, 50%);
 }
 
 .kshr-prgbar {
-	border: 0.1em solid rgb(0, 139, 0);
+	border: 0.1em solid hsl(var(--color), 100%, 30%);
 	border-radius: 5px;
 	padding: 2px;
 	height: 38px;
@@ -77,13 +77,13 @@ Created by Catink123
 }
 
 .kshr-prgbar[value]::-webkit-progress-value {
-	background-color:rgb(0, 255, 0);
+	background-color: hsl(var(--color), 100%, 50%);
 	border-radius: 2px;
 
 }
 
 .kshr-prgbar:not([value])::-webkit-progress-bar {
-	background-color:rgba(0, 255, 0, .5);
+	background-color: hslф(var(--color), 100%, 50%б 0.5);
 	border-radius: 2px;
 }
 
@@ -96,7 +96,7 @@ Created by Catink123
 }
 
 .kshr-btn {
-	border: 2px solid rgb(0, 139, 0);
+	border: 2px solid hsl(var(--color), 100%, 30%);
 	color: white;
 	background-color: transparent;
 	border-radius: 5px;
@@ -111,19 +111,19 @@ Created by Catink123
 }
 
 .kshr-btn:hover {
-	background-color: rgb(0, 139, 0);
+	background-color: hsl(var(--color), 100%, 30%);
 	color: white;
 }
 
 .kshr-btn:active {
-	border: 2px solid rgb(0, 255, 0);
+	border: 2px solid hsl(var(--color), 100%, 50%);
 	transform: scale(0.95);
 }
 
 .kshr-btn-flat {
 	border: 0;
 	color: white;
-	background-color: rgb(0, 255, 0);
+	background-color: hsl(var(--color), 100%, 50%);
 	border-radius: 5px;
 	padding: 5px 10px;
 	transition-duration: 0.15s;
@@ -133,12 +133,12 @@ Created by Catink123
 	margin: 5px;
 	user-select: none;
 	outline: none;
-	box-shadow: 0 3px rgb(0, 139, 0);
+	box-shadow: 0 3px hsl(var(--color), 100%, 30%);
 }
 
 .kshr-btn-flat:active {
 	transform: translateY(2px);
-	box-shadow: 0 1px rgb(0, 139, 0);
+	box-shadow: 0 1px hsl(var(--color), 100%, 30%);
 }
 
 .kshr-btn-transparent {
@@ -157,83 +157,10 @@ Created by Catink123
 }
 
 .kshr-btn-transparent:hover {
-	background-color: rgba(0, 139, 0, 0.5);
+	background-color: hsla(var(--color), 100%, 30%, 0.5);
 	color: white;
 }
 
 .kshr-btn-transparent:active {
-	background-color: rgba(0, 255, 0, 0.5);
+	background-color: hsla(var(--color), 100%, 50%, 0.5);
 }
-
-/* Old wide button variants
-
-.kshr-btn-wide-transparent {
-	border: 2px solid rgba(0, 139, 0, 0);
-	color: white;
-	background-color: transparent;
-	border-radius: 5px;
-	padding: 10px 15px;
-	transition-duration: 0.15s;
-	font-family: 'Calibri';
-	font-size: 1.25em;
-	font-weight: bold;
-	margin: 5px;
-	user-select: none;
-	outline: none;
-}
-
-.kshr-btn-wide-transparent:hover {
-	background-color: rgba(0, 139, 0, 0.5);
-	color: white;
-}
-
-.kshr-btn-wide-transparent:active {
-	#border: 2px solid rgb(0, 255, 0, 0.5);
-	background-color: rgba(0, 255, 0, 0.5);
-}
-
-.kshr-btn-wide-flat {
-	border: 0;
-	color: white;
-	background-color: rgb(0, 255, 0);
-	border-radius: 5px;
-	padding: 10px 15px;
-	transition-duration: 0.15s;
-	font-family: 'Calibri';
-	font-size: 1.25em;
-	font-weight: bold;
-	margin: 5px;
-	user-select: none;
-	outline: none;
-	box-shadow: 0 3px rgb(0, 139, 0);
-}
-
-.kshr-btn-wide-flat:active {
-	transform: translateY(2px);
-	box-shadow: 0 1px rgb(0, 139, 0);
-}
-
-.kshr-btn-wide {
-	border: 2px solid rgb(0, 139, 0);
-	color: white;
-	background-color: transparent;
-	border-radius: 5px;
-	padding: 10px 15px;
-	transition-duration: 0.15s;
-	font-family: 'Calibri';
-	font-size: 1.25em;
-	font-weight: bold;
-	margin: 5px;
-	user-select: none;
-	outline: none;
-}
-
-.kshr-btn-wide:hover {
-	background-color: rgb(0, 139, 0);
-	color: white;
-}
-
-.kshr-btn-wide:active {
-	border: 2px solid rgb(0, 255, 0);
-	transform: scale(0.95);
-} */
