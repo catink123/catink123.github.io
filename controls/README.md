@@ -13,11 +13,24 @@
 
 ## Usage
 ### Adding library
+#### First way
 Download and copy *kshr-ctrls.css* from *css* folder to your desired folder (i. e. *css* folder in your website resources). Then define link to the library in your `<head>` tag.
 ```html
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/example-css-folder/kshr-ctrls.css">
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
+#### Second way
+Define a link in your `<head>` tag.
+```html
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://catink123.github.io/controls/css/kshr-ctrls.css">
   </head>
   <body>
     ...
