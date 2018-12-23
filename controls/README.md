@@ -1,5 +1,5 @@
 # kshr-ctrls CSS library
-*kshr-ctrls* is a CSS library that adds a colorable style to UI elements such as buttons, textboxes, sliders and progress bars.
+*kshr-ctrls* is a CSS library that adds a colorable style to UI elements.
 
 ## Includes
 * Buttons:
