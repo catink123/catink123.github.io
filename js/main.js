@@ -2,9 +2,9 @@ function link (path) {
     $(".container").fadeOut(300, function () {
         $(".loading").fadeIn(300);
         $(".container").load(path + " .blurb", function () {
-            $(".loading", function () {
+            $(".loading").fadeOut(300, function () {
                 $(".container").fadeIn(300);
-            })
+            });
         });
     });
 }
