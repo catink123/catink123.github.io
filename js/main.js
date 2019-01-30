@@ -1,7 +1,10 @@
 function link (path) {
     $(".container").fadeOut(300, function () {
+        $(".loading").fadeIn(300);
         $(".container").load(path + " .blurb", function () {
-            $(".container").fadeIn(300);
+            $(".loading", function () {
+                $(".container").fadeIn(300);
+            })
         });
     });
 }
