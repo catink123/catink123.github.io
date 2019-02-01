@@ -5,6 +5,8 @@ function link (path) {
             $(".loading").fadeOut(300, function () {
                 $(".container").fadeIn(300);
             });
+            p = path.replace("index.html", "");
+            history.pushState(p, p, p);
         });
     });
 }
