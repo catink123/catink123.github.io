@@ -1,5 +1,5 @@
 body {
-    font-family: "Calibri";
+    font-family: "Calibri", sans-serif;
     background: linear-gradient(180deg, #006d2f, #00ca57);
     background-attachment: fixed;
     margin: 0;
@@ -145,13 +145,6 @@ ul.posts li {
         margin-left: 1%;
         margin-right: 1%;
     }
-}
-
-body {
-    font-family: "Calibri";
-    background: linear-gradient(180deg, #006d2f, #00ca57);
-    background-attachment: fixed;
-    margin: 0;
 }
 
 .container {
