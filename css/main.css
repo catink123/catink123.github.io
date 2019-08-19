@@ -1,6 +1,6 @@
 body {
     font-family: "Calibri", sans-serif;
-    background: linear-gradient(180deg, #006d2f, #00ca57);
+    background: repeating-linear-gradient(25deg, transparent, transparent 165px, #006d2f40 165px, #006d2f40 166px), repeating-linear-gradient(-25deg, transparent, transparent 165px, #006d2f40 165px, #006d2f40 166px), linear-gradient(180deg, #006d2f, #00ca57);
     background-attachment: fixed;
     margin: 0;
 }
