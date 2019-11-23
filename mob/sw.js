@@ -1,8 +1,8 @@
 var cacheName = 'mob';
 var filesToCache = [
-  '.',
-  'index.html',
-  '/css/main.css'
+  './',
+  './index.html',
+  './css/main.css'
 ];
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
