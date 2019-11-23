@@ -3,5 +3,13 @@
     "short_name": "MoB",
     "display": "standalone",
     "background_color": "#fff",
-    "description": "A clicker game"
+    "description": "A clicker game",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "/koshka.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
 }
