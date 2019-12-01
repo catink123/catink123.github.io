@@ -96,6 +96,11 @@ a {
     background-color: #b7b7b7;
 }
 
+.menu a:focus {
+    outline: 2px solid white;
+    outline-offset: -2px;
+}
+
 h1 {
     font-size: 3em;
     color: white;
