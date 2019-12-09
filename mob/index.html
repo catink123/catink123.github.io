@@ -1,32 +1,67 @@
 <!DOCTYPE html>
-	<html lang="ru">
-		<head>
-			<title>Mansion of Blood</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" media="(min-width: 640px)" href="/css/main.css">
-			<link rel="stylesheet" type="text/css" media="(max-width: 640px)" href="/css/mobile.css">
-			<meta name="theme-color" content="#005625" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<script src="/js/jquery.js"></script>
-			<script src="/js/main.js"></script>
-			<link rel="shortcut icon" href="/koshka.png">
-			<link rel="manifest" href="manifest.json">
-		</head>
-		<body>
-			<div class="container">
-			
-				<div class="blurb">
-					<h1>Mansion of Blood</h1>
-				</div>
-			
-			</div><!-- /.container -->
-			<script>
-      			if('serviceWorker' in navigator) {
-        			navigator.serviceWorker.register('sw.js')
-          		.then(function() {
-                		console.log('Service Worker Registered');
-          		});
-      			}
-    			</script>
-		</body>
-	</html>
+<html lang="ru">
+
+<head>
+	<title>Mansion of Blood</title>
+
+	<!-- CSS stylesheets -->
+	<link rel="stylesheet" type="text/css" media="(min-width: 640px)" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" media="(max-width: 640px)" href="/css/mobile.css">
+
+	<!-- Accent color -->
+	<meta name="theme-color" content="#005625" />
+	<!-- Set appropriate scale -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- JQuery library -->
+	<script src="/js/jquery.js"></script>
+
+	<!-- Tab icon -->
+	<link rel="shortcut icon" href="/koshka.png">
+	<!-- Manifest for PWA -->
+	<link rel="manifest" href="manifest.json">
+
+	<!-- Ionic Framework -->
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+
+	<!-- Main script -->
+	<script src="./js/main.js"></script>
+</head>
+
+<body>
+	<div class="container">
+
+		<ion-app></ion-app>
+
+		<ion-header>
+			<ion-toolbar>
+				<ion-title>Manga Saver</ion-title>
+				<ion-buttons slot="primary">
+					<ion-button onclick="presentAddModal()">
+						<ion-icon slot="icon-only" name="add"></ion-icon>
+					</ion-button>
+				</ion-buttons>
+			</ion-toolbar>
+		</ion-header>
+		<ion-content>
+			<ion-list>
+				<ion-item button onclick="link(`https://google.com/`)">
+					<p>Template1</p>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+
+	</div><!-- /.container -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('sw.js')
+				.then(function () {
+					console.log('Service Worker Registered');
+				});
+		}
+	</script>
+</body>
+
+</html>
