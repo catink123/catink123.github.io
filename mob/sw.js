@@ -1,4 +1,4 @@
-const cacheName = 'MoB v0.1';
+const cacheName = 'MoB v0.1.0';
 var filesToCache = [
 	'./',
 	'./index.html',
