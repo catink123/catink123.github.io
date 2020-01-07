@@ -1,6 +1,6 @@
 customElements.define('add-page', class extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+	connectedCallback() {
+		this.innerHTML = `
 <ion-header>
   <ion-toolbar>
     <ion-title>Add an item</ion-title>
@@ -22,40 +22,56 @@ customElements.define('add-page', class extends HTMLElement {
 	</ion-item>
 	<div class="ion-padding"><ion-button type="submit" expand="block" onclick="addItem(dqs('#name').value, dqs('#link').value)">Add</ion-button></div>
 </ion-content>`;
-    }
+	}
 });
 
 function dqs(selector) {
-    return document.querySelector(selector)
+	return document.querySelector(selector)
 }
 
 function link(url) {
-    window.location.href = url;
+	window.location.href = url;
 }
 
 function presentAddModal() {
-    // create the modal with the `modal-page` component
-    const modalElement = document.createElement('ion-modal');
-    modalElement.component = 'add-page';
+	// create the modal with the `modal-page` component
+	const modalElement = document.createElement('ion-modal');
+	modalElement.component = 'add-page';
 
-    // present the modal
-    document.body.appendChild(modalElement);
-    return modalElement.present();
+	// present the modal
+	document.body.appendChild(modalElement);
+	return modalElement.present();
 }
 
 function dismissModal() {
-    document.querySelector("ion-modal").dismiss()
+	document.querySelector("ion-modal").dismiss()
 }
 
 function addItem(name, li) {
-    var cont = document.createElement("ion-item");
-    cont.setAttribute("button", "true")
-    cont.onclick = () => {
-        link(li)
-    }
-    var text = document.createElement("p");
-    text.innerHTML = name;
-    cont.appendChild(text);
-    document.querySelector("ion-list").appendChild(cont);
-    dismissModal()
+	var cont = document.createElement("ion-item");
+	cont.setAttribute("button", "true")
+	cont.onclick = () => {
+		link(li)
+	}
+	var text = document.createElement("p");
+	text.innerHTML = name;
+	cont.appendChild(text);
+	document.querySelector("ion-list").appendChild(cont);
+	dismissModal()
+}
+
+async function showUpdateToast() {
+	var toast = document.createElement('ion-toast');
+	toast.message = 'New Update available!';
+	toast.position = 'bottom';
+	toast.buttons = [{
+		text: 'Update',
+		handler: () => {
+			newWorker.postMessage({ action: 'skipWaiting' });
+		}
+	}
+	];
+
+	document.body.appendChild(toast);
+	return toast.present();
 }

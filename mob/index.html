@@ -55,11 +55,35 @@
 
 	</div><!-- /.container -->
 	<script>
+		let newWorker;
+		let refreshing;
+
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('sw.js')
-				.then(function () {
-					console.log('Service Worker Registered');
+				.then(reg => {
+					reg.addEventListener('updatefound', () => {
+						newWorker = reg.installing;
+						newWorker.addEventListener('statechange', () => {
+							switch (newWorker.state) {
+								case 'installed':
+									if (navigator.serviceWorker.controller) {
+										showUpdateToast();
+									}
+									break;
+							}
+						})
+					})
+					/* console.log('ServiceWorker registration successful with scope: ', registration.scope); */
+				})
+				.catch(function (err) {
+					// registration failed :(
+					console.log('ServiceWorker registration failed: ', err);
 				});
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
+				if (refreshing) return;
+				window.location.reload();
+				refreshing = true;
+			})
 		}
 	</script>
 </body>
