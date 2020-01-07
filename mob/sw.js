@@ -1,4 +1,4 @@
-const cacheName = 'MoB v0.1.0';
+const cacheName = 'MoB v0.1.1';
 var filesToCache = [
 	'./',
 	'./index.html',
@@ -8,6 +8,11 @@ var filesToCache = [
 
 self.addEventListener('install', function (e) {
 	console.log('[ServiceWorker] Install');
+	caches.keys().then(function(cacheNames) {
+		cacheNames.forEach(function(cacheName) {
+		  caches.delete(cacheName);
+		});
+	  });
 	e.waitUntil(
 		caches.open(cacheName).then(function (cache) {
 			console.log('[ServiceWorker] Caching app shell');
