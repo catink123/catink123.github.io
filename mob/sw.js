@@ -1,4 +1,4 @@
-const cacheName = 'Mansion of Blood v0.0.1';
+const cacheName = 'Mansion of Blood v0.0.1 567bn069';
 var filesToCache = [
 	'./',
 	'./index.html',
