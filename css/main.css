@@ -137,6 +137,11 @@ ul.posts li {
         margin-left: 15%;
         margin-right: 15%;
     }
+    
+    .menu {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -144,6 +149,11 @@ ul.posts li {
     .container {
         margin-left: 8%;
         margin-right: 8%;
+    }
+    
+    .menu {
+        padding-left: 8%;
+        padding-right: 8%;
     }
 }
 
