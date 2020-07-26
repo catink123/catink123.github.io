@@ -15,7 +15,7 @@ renderButton.addEventListener("click", render);
 
 var scalingSlider = document.querySelector("#scaling");
 var scalingSliderP = document.querySelector("#scalingP");
-scalingSlider.addEventListener("change", () => {
+scalingSlider.addEventListener("input", () => {
   scaling = scalingSlider.value;
   scalingSliderP.innerHTML = scalingSlider.value;
 });
