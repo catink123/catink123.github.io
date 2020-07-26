@@ -5,15 +5,11 @@ title: Demotivator Creator
 
 <div class="blurb">
 <div class="flexbox">
-      <label
-        >First Row: <input class="kshr-txtbox" type="text" id="firstRow" value="First Row"
-      /></label>
-      <label
-        >Second Row: <input class="kshr-txtbox" type="text" id="secondRow" value="Second Row"
-      /></label>
+      <label>Первая строка: <input class="kshr-txtbox" type="text" id="firstRow" value="Первая строка"/></label>
+      <label>Вторая строка: <input class="kshr-txtbox" type="text" id="secondRow" value="Вторая строка"/></label>
       <label>Image: <input id="image" type="file"/></label>
-      <div>
-        <label>Scaling:
+      <div class="scaling">
+        <label>Размер:
           <input
             class="kshr-slider"
             id="scaling"
@@ -23,10 +19,9 @@ title: Demotivator Creator
             step="0.01"
             value="1"
           />
-          <p id="scalingP">1</p></label
-        >
+          <p id="scalingP">1</p></label>
       </div>
-      <button class="kshr-btn" id="render">Render!</button>
+      <button class="kshr-btn" id="render">Создать!</button>
     </div>
 
     <canvas width="400" height="500"></canvas>
