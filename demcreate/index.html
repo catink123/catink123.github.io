@@ -4,5 +4,31 @@ title: Demotivator Creator
 ---
 
 <div class="blurb">
-<p>DC</p>
+<div class="flexbox">
+      <label
+        >First Row: <input class="kshr-txtbox" type="text" id="firstRow" value="First Row"
+      /></label>
+      <label
+        >Second Row: <input class="kshr-txtbox" type="text" id="secondRow" value="Second Row"
+      /></label>
+      <label>Image: <input id="image" type="file"/></label>
+      <div>
+        <label>Scaling:
+          <input
+            class="kshr-slider"
+            id="scaling"
+            type="range"
+            min="0.01"
+            max="10"
+            step="0.01"
+            value="1"
+          />
+          <p id="scalingP">1</p></label
+        >
+      </div>
+      <button class="kshr-btn" id="render">Render!</button>
+    </div>
+
+    <canvas width="400" height="500"></canvas>
+  <script src="main.js"></script>
 </div>
