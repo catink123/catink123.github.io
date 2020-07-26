@@ -320,3 +320,21 @@ ul.posts li {
     padding: 5px;
     border-radius: 5px;
 }
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: white;
+}
+
+.scaling label {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=file] {
+    font-size: 20px;
+}
