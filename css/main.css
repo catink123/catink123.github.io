@@ -324,6 +324,10 @@ ul.posts li {
 .flexbox {
     display: flex;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
 }
 
 label {
