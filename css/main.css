@@ -342,3 +342,11 @@ label {
 input[type=file] {
     font-size: 20px;
 }
+
+canvas {
+    display: none;
+}
+
+.demoutput {
+    max-width: 100%;
+}
