@@ -70,7 +70,7 @@ Created by Catink123
 	border: 0.1em solid hsl(var(--color, 150), 100%, 30%);
 	padding: 5px 10px;
 	border-radius: 5px;
-	font-family: 'Calibri';
+	font-family: 'Calibri', sans-serif;
 	font-size: 1.25em;
 	font-weight: bold;
 	background-color: transparent;
@@ -142,7 +142,7 @@ Created by Catink123
 	border-radius: 5px;
 	padding: 5px 10px;
 	transition-duration: 0.15s;
-	font-family: 'Calibri';
+	font-family: 'Calibri', sans-serif;
 	font-size: 1.25em;
 	font-weight: bold;
 	margin: 5px;
@@ -167,7 +167,7 @@ Created by Catink123
 	border-radius: 5px;
 	padding: 5px 10px;
 	transition-duration: 0.15s;
-	font-family: 'Calibri';
+	font-family: 'Calibri', sans-serif;
 	font-size: 1.25em;
 	font-weight: bold;
 	margin: 5px;
@@ -188,7 +188,7 @@ Created by Catink123
 	border-radius: 5px;
 	padding: 7px 12px;
 	transition-duration: 0.15s;
-	font-family: 'Calibri';
+	font-family: 'Calibri', sans-serif;
 	font-size: 1.25em;
 	font-weight: bold;
 	margin: 5px;
