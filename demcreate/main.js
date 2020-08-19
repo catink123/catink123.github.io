@@ -33,7 +33,7 @@ function render() {
 			canvas.width = 400 * scaling;
 			canvas.height = (imgSH / imgSW * 400 + 104) * scaling;
 		} else {
-			canvas.width = (imgSH / imgSW * 800) * scaling;
+			canvas.width = (imgSW / imgSH * 800) * scaling;
 			canvas.height = 800 * scaling;
 		}
     } else {
@@ -49,10 +49,10 @@ function render() {
     ctx.lineWidth = 2 * scaling;
     ctx.strokeStyle = "white";
     ctx.strokeRect(
-      10 * scaling,
-      10 * scaling,
-      canvas.width - 20 * scaling,
-      canvas.height - 100 * scaling
+    	10 * scaling,
+    	10 * scaling,
+    	canvas.width - 20 * scaling,
+    	canvas.height - 100 * scaling
     );
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
@@ -62,11 +62,11 @@ function render() {
     ctx.font = `${14 * scaling}px sans-serif`;
     ctx.fillText(secondRow.value, canvas.width / 2, canvas.height - 30 * scaling);
     ctx.drawImage(
-      img,
-      14 * scaling,
-      14 * scaling,
-      canvas.width - 28 * scaling,
-      canvas.height - 108 * scaling
+    	img,
+    	14 * scaling,
+    	14 * scaling,
+    	canvas.width - 28 * scaling,
+    	canvas.height - 108 * scaling
     );
     document.querySelector("#output").src = canvas.toDataURL();
-  }
+}
