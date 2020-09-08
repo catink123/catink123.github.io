@@ -83,6 +83,10 @@ a {
 .menu a img.koshka {
     left: 0;
     top: 0;
+    width: 43px;
+    height: 43px;
+    float: left;
+    position: absolute
 }
 
 .menu a:first-child {
