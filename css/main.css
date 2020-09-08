@@ -61,7 +61,7 @@ nav ul li, footer ul li {
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: rgb(109 109 109 / 61%);
+    background-color: rgb(33 33 33 / 61%);
     -ms-overflow-style: none;
     backdrop-filter: blur(5px) contrast(125%);
 }
@@ -75,6 +75,10 @@ a {
     text-decoration: none;
 }
 
+.container a {
+    text-decoration: underline;
+}
+
 .blurb a:focus {
     outline: 2px solid white;
 }
@@ -86,7 +90,7 @@ a {
     display: inline-block;
     padding: 10px;
     font-weight: bold;
-    transition: all 0.1s linear;
+    transition: all 0.05s linear;
     font-size: 1.2em;
 }
 
@@ -105,13 +109,13 @@ a {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: white;
     margin: .4em auto;
 }
 
 p {
-    font-size: 1.5em;
+    font-size: 1.1em;
     line-height: 1.1em;
     margin: .1em auto;
     color: white;
