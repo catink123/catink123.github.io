@@ -211,3 +211,15 @@ canvas {
 .graytheme {
     filter: grayscale(1);
 }
+
+div.project a {
+    font-size: 24px;
+}
+
+div.project {
+    margin-bottom: 25px;
+}
+
+div.project:last-child {
+    margin: 0;
+}
