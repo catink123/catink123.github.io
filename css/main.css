@@ -208,3 +208,7 @@ canvas {
 .demoutput {
     max-width: 100%;
 }
+
+.graytheme {
+    filter: grayscale(1);
+}
