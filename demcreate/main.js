@@ -57,7 +57,7 @@ function render() {
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
-    ctx.font = `${36 * scaling}px sans`;
+    ctx.font = `${36 * scaling}px serif`;
     ctx.fillText(firstRow.value, canvas.width / 2, canvas.height - 70 * scaling);
     ctx.font = `${14 * scaling}px sans-serif`;
     ctx.fillText(secondRow.value, canvas.width / 2, canvas.height - 30 * scaling);
