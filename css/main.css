@@ -49,6 +49,7 @@ nav ul li, footer ul li {
     background-color: rgb(33 33 33 / 61%);
     -ms-overflow-style: none;
     backdrop-filter: blur(5px) contrast(125%);
+    z-index: 10;
 }
 
 .menu::-webkit-scrollbar { 
