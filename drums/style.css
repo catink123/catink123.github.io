@@ -1,0 +1,18 @@
+div.button {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+div.button.pressed, div.button:active {
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+div.flex {
+    display: flex;
+}

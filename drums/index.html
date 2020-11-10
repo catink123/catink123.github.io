@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drums</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Drums</p>
+    <script>
+        for (key in binds) {
+	        var p = document.createElement("p");
+	        p.innerHTML = `${key} is for ${getKeyByValue(sounds, binds[key])}`;
+	        document.body.append(p);
+        }
+    </script>
+    <div class="flex">
+        <div class="button" id="kick" onclick="play(sounds.kicks)">Kick</div>
+        <div class="button" id="snare" onclick="play(sounds.snares)">Snare</div>
+        <div class="button" id="snareoff" onclick="play(sounds.snareoffs)">Snare Off</div>
+        <div class="button" id="closehat" onclick="play(sounds.closehats)">Closed Hat</div>
+        <div class="button" id="openhat" onclick="play(sounds.openhats)">Open Hat</div>
+    </div>
+    <script>
+        var kickButt = document.querySelector("#kick");
+        var snareButt = document.querySelector("#snare");
+        var snareoffButt = document.querySelector("#snareoff");
+        var closehatButt = document.querySelector("#closehat");
+        var openhatButt = document.querySelector("#openhat");
+
+        var buttBinds = {
+        	"kicks": kickButt,
+        	"snares": snareButt,
+        	"snareoffs": snareoffButt,
+        	"closehats": closehatButt,
+        	"openhats": openhatButt
+        }
+
+        document.addEventListener("keydown", e => {
+	        for (key in binds) {
+	        	if (e.key == key) {
+                    play(binds[key]);
+	        		buttBinds[getKeyByValue(sounds, binds[key])].className = "button pressed";
+	        	}
+	        }
+        })
+
+        document.addEventListener("keyup", e => {
+	        for (key in binds) {
+	        	if (e.key == key) {
+	        		buttBinds[getKeyByValue(sounds, binds[key])].className = "button";
+	        	}
+	        }
+        })
+    </script>
+</body>
+</html>
