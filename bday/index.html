@@ -4,7 +4,44 @@ title: Top Secret
 ---
 <div class="blurb">
 
+  <button id="musicButton">⏵</button>
+    <script>
+      var music = new Audio();
+      music.volume = 0.25;
+      var musicList = [
+        "music/Uso to Honto ~ Piano Solo.mp3",
+        "music/Watashi no Uso ~ Piano Solo.mp3",
+        "music/Yuujin A ~ Piano Solo.mp3"
+      ];
+      var isPlaying = false;
+      var i = 0;
+      music.src = musicList[0];
+      music.autoplay = true;
+      music.play();
+      music.addEventListener("ended", () => {
+        i++;
+        if (i > 2) i = 0;
+        music.src = musicList[i];
+        music.play();
+      });
+      music.addEventListener("play", () => {
+        musicButton.innerHTML = "⏸️";
+        isPlaying = true;
+      });
+      music.addEventListener("pause", () => {
+        musicButton.innerHTML = "⏵";
+        isPlaying = false;
+      })
+
+      var musicButton = document.querySelector("#musicButton");
+      musicButton.addEventListener("click", () => {
+        if (isPlaying) music.pause()
+        else music.play()
+      })
+    </script>
+  
 <h1>С днём рождения тебя дорогой друг!</h1>
+  <p style="opacity: .75; font-size: 10px">Нажми на кнопку в углу экрана для музыки.</p>
 <p>Знаю, это будет звучать как что-то обычное, но желаю тебе самого наилучшего в жизни. Я считаю, что когда исполняется человеку 16 лет, то он проходит некую стадию, становится намного взрослее того, кем был раньше. Можно сказать, я уже позади тебя на целую ступень, хоть и на месяц. В этот раз с подарком чуть более креативнее получилось, чем в прошлые разы. </p>
 
 <p>В нашей дружбе произошло много всего интересного, мы рассказали друг другу много чего личного, то есть сблизились ещё больше. Мы уже настолько привыкли друг к другу, что даже уже спонтанные звонки стали быть нормальными. Раньше я был даже смущён говорить с тобой вживую, но постепенно это сошло на нет, когда мы стали больше и больше общаться по звонку. Я бы и не прекращал такое частое общение. </p>
