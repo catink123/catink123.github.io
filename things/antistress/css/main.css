@@ -1,0 +1,46 @@
+body {
+    color: white;
+    background: rgb(15 15 15);
+    font-size: 75px;
+    background: url('../assets/bg.png');
+    background-size: contain;
+}
+
+div.blackScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+div.blackScreen.gone {
+    background: transparent;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
+#figure {
+    position:fixed;
+    top: 0;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-duration: .15s;
+}
+
+#figure:hover {
+    transform: translateX(-50%) scale(1.05);
+    filter: brightness(1.5) saturate(1.5)
+}
+
+#figure:active {
+    transform: translateX(-50%) scale(1)
+}
+
+canvas#bgParticles {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
