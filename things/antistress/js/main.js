@@ -1,4 +1,4 @@
-let prefix = '../assets/';
+let prefix = 'assets/';
 
 let soundList = [
     'KillerCalling1.wav',
@@ -70,7 +70,7 @@ function makeParticle(radius, blurRadius, opacity) {
     particleCanvas.width = radius * 2 + blurRadius * 4;
     particleCanvas.height = radius * 2 + blurRadius * 4;
     PCctx.filter = "blur(" + blurRadius + "px)";
-    PCctx.fillStyle = "rgba(255, 255, 255, " + opacity + ")";
+    PCctx.fillStyle = "rgba(255, 100, 100, " + opacity + ")";
     PCctx.beginPath();
     PCctx.arc(particleCanvas.width / 2, particleCanvas.height / 2, radius, 0, Math.PI * 2);
     PCctx.fill();
@@ -79,27 +79,28 @@ function makeParticle(radius, blurRadius, opacity) {
     return img;
 }
 
-/* let settings = {
-    amount: 1000,
-    maxSpeed: 10
+let settings = {
+    amount: 30,
+    maxSpeed: 0.5
 }
 
 let particles = [];
+let randNums = [];
 for (var i = 0; i < settings.amount; i++) {
-    let randNums = [];
-    for (var s; i < 4; i++) {
-        randNums.push(Math.random())
+    randNums = [];
+    for (var s = 0; s < 4; s++) {
+        randNums[s] = Math.random()
     }
     particles.push(
         {
             x: Math.round(randNums[0] * pCanvas.width),
             y: Math.round(randNums[1] * pCanvas.height),
-            xSpeed: Math.round(randNums[2] * settings.maxSpeed - settings.maxSpeed / 2),
-            ySpeed: Math.round(randNums[3] * settings.maxSpeed - settings.maxSpeed / 2),
+            xSpeed: randNums[2] * settings.maxSpeed - settings.maxSpeed / 2,
+            ySpeed: randNums[3] * settings.maxSpeed - settings.maxSpeed / 2,
             image: makeParticle(
-                i + 1,
-                i,
-                1
+                Math.round((i + 1) / 20) + 1,
+                Math.round(i / 20),
+                1 - (i / 50)
             )
         }
     )
@@ -108,16 +109,20 @@ for (var i = 0; i < settings.amount; i++) {
 setInterval(() => {
     for (const p in particles) {
         particles[p].x += particles[p].xSpeed;
+        if (particles[p].x > pCanvas.width) particles[p].x = -particles[p].image.width;
+        if (particles[p].x + particles[p].image.width < 0) particles[p].x = pCanvas.width;
         particles[p].y += particles[p].ySpeed;
+        if (particles[p].y > pCanvas.height) particles[p].y = -particles[p].image.height;
+        if (particles[p].y + particles[p].image.height < 0) particles[p].y = pCanvas.height;
     }
 }, 16)
 
 function draw() {
-    for (const p in particles) {
-	particles[p].x += particles[p].xSpeed;
-        particles[p].y += particles[p].ySpeed;
+    pctx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+    for (let p in particles) {
         pctx.drawImage(particles[p].image, particles[p].x, particles[p].y);
     }
+    requestAnimationFrame(draw);
 }
 
-draw() */
+requestAnimationFrame(draw);

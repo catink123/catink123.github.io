@@ -3,7 +3,8 @@ body {
     background: rgb(15 15 15);
     font-size: 75px;
     background: url('../assets/bg.png');
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
 }
 
 div.blackScreen {
@@ -28,6 +29,7 @@ div.blackScreen.gone {
     left: 50%;
     transform: translateX(-50%);
     transition-duration: .15s;
+/*     opacity: 0.01 */
 }
 
 #figure:hover {
