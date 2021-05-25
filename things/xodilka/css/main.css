@@ -1,0 +1,55 @@
+@keyframes fadeOut {
+    from {
+        display: block;
+        opacity: 1;
+    }
+    to {
+        display: none;
+        opacity: 0;
+    }
+}
+
+body {
+    background: linear-gradient(rgb(50 0 0) calc(50% - 185px), rgb(25 0 0) calc(50% - 185px), rgb(25 0 0) calc(50% + 185px), rgb(75 0 0) calc(50% + 185px));
+    background-size: cover;
+    background-position: center;
+}
+
+body.showWall {
+    background: linear-gradient(90deg, transparent calc(50% - 90px), rgb(100 0 0) calc(50% - 90px), rgb(80 0 0), rgb(80 0 0), rgb(100 0 0) calc(50% + 90px), transparent calc(50% + 90px)), 
+                linear-gradient(rgb(50 0 0) calc(50% - 185px), rgb(25 0 0) calc(50% - 185px), rgb(25 0 0) calc(50% + 185px), rgb(75 0 0) calc(50% + 185px));
+
+}
+
+canvas {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+div.loadingContainer {
+    padding: 5px;
+    border: 1px solid rgba(255 255 255 / 0.25);
+    border-radius: 5px;
+    color: white;
+    width: fit-content;
+    background: rgba(0 0 0 / 0.5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.loadingContainer p {
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div.loadingContainer.loaded {
+    animation: fadeOut forwards .25s;
+}
+
+progress {
+
+}
