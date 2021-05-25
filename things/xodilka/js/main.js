@@ -143,6 +143,33 @@ setInterval(() => {
     }
 }, 33);
 
+canv.addEventListener("contextmenu", e => {e.preventDefault()});
+
+canv.addEventListener("touchstart", e => {
+    e.preventDefault();
+    let playerX = x + currentAnim.width / 2;
+    let touchX = e.touches[0].clientX;
+    let animate = false;
+    if (touchX < playerX - 50) {xSpeed = -5; flipped = true; animate = true;}
+    if (touchX > playerX + 50) {xSpeed = 5; flipped = false; animate = true;}
+    if (animate) changeAnim("walk");
+})
+
+canv.addEventListener("touchmove", e => {
+    e.preventDefault();
+    let playerX = x + currentAnim.width / 2;
+    let touchX = e.touches[0].clientX;
+    let animate = false;
+    if (touchX < playerX - 50) {xSpeed = -5; flipped = true; animate = true;}
+    if (touchX > playerX + 50) {xSpeed = 5; flipped = false; animate = true;}
+    if (animate) changeAnim("walk");
+})
+
+canv.addEventListener("touchend", e => {
+    xSpeed = 0;
+    changeAnim("stand");
+})
+
 function draw(t) {
     c.clearRect(0, 0, canv.width, canv.height);
     c.fillStyle = "rgba(0, 0, 0, 0.5)";
