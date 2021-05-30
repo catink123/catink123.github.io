@@ -51,5 +51,15 @@ div.loadingContainer.loaded {
 }
 
 progress {
+    appearance: none;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
+progress::-webkit-progress-bar {
+    background: rgba(255 0 0 / 0.25);
+}
+
+progress::-webkit-progress-value {
+    background: rgba(255 0 0 / 0.75);
 }

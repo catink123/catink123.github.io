@@ -20,11 +20,27 @@ let c = canv.getContext("2d");
 let anims = {
     stand: {
         src: './assets/stand.png',
-        frameCount: 80
+        frameCount: 40,
+        origin: [50, 93]
     },
     walk: {
         src: './assets/walk.png',
         frameCount: 40
+    },
+    appear: {
+        src: './assets/appear.png',
+        frameCount: 46,
+        origin: [0, 322],
+        waitUntilFinish: true
+    },
+    attack: {
+        src: './assets/attack.png',
+        frameCount: 30,
+        waitUntilFinish: true
+    },
+    run: {
+        src: './assets/run.png',
+        frameCount: 50
     }
 }
 
@@ -76,7 +92,9 @@ let currentAnim = {
     image: null,
     width: 0,
     available: false,
-    frameCount: 0
+    frameCount: 0,
+    origin: [0, 0],
+    waitUntilFinish: false
 };
 
 function changeAnim(animName) {
@@ -85,6 +103,10 @@ function changeAnim(animName) {
         currentAnim.name = animName;
         currentAnim.available = false;
         currentAnim.frameCount = anim.frameCount;
+        if (anim.origin) currentAnim.origin = anim.origin;
+        else currentAnim.origin = [0, 0];
+        if (anim.waitUntilFinish) currentAnim.waitUntilFinish = true;
+        else currentAnim.waitUntilFinish = false;
         loadImage(anim.src).then(img => {
             currentAnim.image = img;
             currentAnim.width = currentAnim.image.width / currentAnim.frameCount;
@@ -93,41 +115,71 @@ function changeAnim(animName) {
     }
     
 }
-changeAnim("stand");
+changeAnim("appear");
 
 let curFrame = 0;
 
 let x = 0;
 let xSpeed = 0;
+let setXSpeed = 5;
+let setXAnim = "walk";
 
 let flipped = false;
 
+let attacking = false;
+
 document.addEventListener("keydown", e => {
     if (e.repeat) return;
-    switch (e.key) {
-        case "ArrowRight":
+    if (e.getModifierState("Shift")) {
+        setXAnim = "run";
+        setXSpeed = 35;
+        if (xSpeed !== 0) {
+            changeAnim(setXAnim);
+            xSpeed = setXSpeed * (flipped ? -1 : 1);
+        }
+    }
+    switch (e.code) {
+        case "KeyD":
             e.preventDefault();
-            changeAnim("walk");
-            xSpeed = 5;
+            if (!currentAnim.waitUntilFinish) {
+                changeAnim(setXAnim);
+                xSpeed = setXSpeed;
+            }
             flipped = false;
             break;
-        case "ArrowLeft":
+        case "KeyA":
             e.preventDefault();
-            changeAnim("walk");
-            xSpeed = -5;
+            if (!currentAnim.waitUntilFinish) {
+                changeAnim(setXAnim);
+                xSpeed = -setXSpeed;
+            }
             flipped = true;
+            break;
+        case "Space":
+            e.preventDefault();
+            xSpeed = 0;
+            curFrame = 0;
+            changeAnim("attack");
             break;
     }
 });
 
 document.addEventListener("keyup", e => {
-    switch (e.key) {
-        case "ArrowRight":
-            changeAnim("stand");
+    if (!e.getModifierState("Shift")) {
+        setXAnim = "walk";
+        setXSpeed = 5;
+        if (xSpeed !== 0) {
+            changeAnim(setXAnim);
+            xSpeed = setXSpeed * (flipped ? -1 : 1)
+        }
+    }
+    switch (e.code) {
+        case "KeyD":
+            if (!currentAnim.waitUntilFinish) changeAnim("stand");
             xSpeed = 0;
             break;
-        case "ArrowLeft":
-            if (currentAnim.available) changeAnim("stand");
+        case "KeyA":
+            if (!currentAnim.waitUntilFinish) changeAnim("stand");
             xSpeed = 0;
             break;
     }
@@ -139,7 +191,13 @@ setInterval(() => {
     if (x < -currentAnim.width) x = canv.width;
     if (currentAnim.available) {
         curFrame++;
-        if (curFrame >= currentAnim.frameCount) curFrame = 0;
+        if (curFrame >= currentAnim.frameCount) {
+            if (currentAnim.waitUntilFinish) {
+                if (xSpeed !== 0) changeAnim(setXSpeed); 
+                else changeAnim("stand");
+            }
+            curFrame = 0;
+        };
     }
 }, 33);
 
@@ -170,13 +228,15 @@ canv.addEventListener("touchend", e => {
     changeAnim("stand");
 })
 
+let globalOffset = [0, 30];
+
 function draw(t) {
     c.clearRect(0, 0, canv.width, canv.height);
     c.fillStyle = "rgba(0, 0, 0, 0.5)";
     c.fillRect(0, 0, canv.width, canv.height);
     if (loaded && currentAnim.available) {
-        let sx = curFrame * currentAnim.width;
-        let sy = 0;
+        let sx = curFrame * currentAnim.width - currentAnim.origin[0] + globalOffset[0];
+        let sy = currentAnim.origin[1] - globalOffset[1];
         let sw = currentAnim.width;
         let sh = currentAnim.image.height;
 
