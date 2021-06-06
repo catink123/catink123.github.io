@@ -32,7 +32,7 @@ let loaded = false;
 let imagePromises = [];
 for (const i in anims) {
     imagePromises.push(Extensions.loadImage(anims[i].src, player.animCache, (deltaPercentage) => {
-        prog.value += Math.round(deltaPercentage * 100) / 100;
+        prog.value += deltaPercentage / prog.max;
         var valRound = Math.round(prog.value * 100) / 100;
         var percentage = Math.round(valRound / prog.max * 10000) / 100;
         progP.innerHTML = `Loading: ${percentage}% (${valRound} / ${prog.max})`;
