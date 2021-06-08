@@ -29,10 +29,24 @@ let progP = document.querySelector("#loadingP");
 
 let loaded = false;
 
+// let lds = []; It's defined in the <head> script tag.
+
 let imagePromises = [];
 for (const i in anims) {
-    imagePromises.push(Extensions.loadImage(anims[i].src, player.animCache, (deltaPercentage) => {
-        prog.value += deltaPercentage / prog.max;
+    imagePromises.push(Extensions.loadImage(anims[i].src, player.animCache, (percObj) => {
+        let ldIndex = lds.findIndex(val => {
+            if (val.index === percObj.index) return true;
+            return false;
+        });
+        if (lds[ldIndex] !== undefined) lds[ldIndex] = percObj;
+        else {
+            lds.push(percObj);
+        }
+        var total = 0;
+        for (var i in lds) {
+            total += lds[i].value;
+        }
+        prog.value = total;
         var valRound = Math.round(prog.value * 100) / 100;
         var percentage = Math.round(valRound / prog.max * 10000) / 100;
         progP.innerHTML = `Loading: ${percentage}% (${valRound} / ${prog.max})`;
