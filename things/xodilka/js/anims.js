@@ -41,7 +41,48 @@ anims.push(
         50,
     )
 );
+anims.push(
+    new Animation(
+        'enemyWalk',
+        './assets/enemyWalk.png',
+        64,
+        [0, 151]
+    )
+)
+anims.push(
+    new Animation(
+        'enemyHit1',
+        './assets/enemyHit1.png',
+        39,
+        [0, 150],
+        true
+    )
+)
+anims.push(
+    new Animation(
+        'enemyHit2',
+        './assets/enemyHit2.png',
+        39,
+        [0, 150],
+        true
+    )
+)
 
-let cache = {}
+anims.push(
+    new Animation(
+        'blank',
+        './assets/blank.png',
+        0
+    )
+)
+
+anims.push(
+    new Animation(
+        'ahegao',
+        './assets/ahegao.png',
+        50,
+        [0, -100]
+    )
+)
 
 export default anims;

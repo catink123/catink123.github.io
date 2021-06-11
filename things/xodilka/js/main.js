@@ -1,16 +1,22 @@
+import anims from './anims.js';
 import Extensions from './Extensions.js';
 import Player from './Player.js';
-import anims from './anims.js';
+import Enemy from './Enemy.js';
 
 let canv = document.querySelector("canvas");
 let showWall = false;
+let blackOpacity = 0;
+let isBlackingOut = false;
+let isBlackingIn = false;
 
 let player = new Player(0, 0, 5, canv.width);
+let enemies = [];
 
 function updateCanvasSize() {
     canv.width = window.innerWidth - 15;
     canv.height = 350;
     player.maxX = canv.width;
+    for (const i in enemies) enemies[i].maxX = canv.width;
     if (window.innerWidth < 850) showWall = false;
     else showWall = true;
 
@@ -18,7 +24,38 @@ function updateCanvasSize() {
     else document.body.className = "";
 }
 
+function createRandomEnemy() {
+    let height = Math.floor(Math.random() * (canv.height - 100)) + 100;
+    // let speed = Math.floor(Math.random() * 10) + 1;
+    let anim = Extensions.findAnim(anims, "enemyWalk");
+    // let animWidth = anim.image.width / anim.frameCount;
+    let animWidth = 700;
+    let speed = 5;
+    return new Enemy(
+        // Math.floor(Math.random() * canv.width), 
+        Math.random() > 0.5 ? canv.width + animWidth : -animWidth,
+        (canv.height / 2) - (height / 2),
+        canv.width, 
+        100, 
+        height, 
+        speed,
+        anim
+    );
+}
+
+function blackOut() {
+    blackOpacity = 0;
+    isBlackingOut = true;
+}
+
+function blackIn() {
+    blackOpacity = 1;
+    isBlackingIn = true;
+}
+
 updateCanvasSize();
+
+enemies.push(createRandomEnemy());
 
 document.body.onresize = updateCanvasSize;
 
@@ -57,7 +94,7 @@ for (const i in anims) {
 prog.max = imagePromises.length;
 prog.value = 0;
 progP.innerHTML = `Loading: ${prog.value} / ${prog.max}`;
-Promise.all(imagePromises).then(images => {
+Promise.all(imagePromises).then(() => {
     loaded = true;
     document.querySelector(".loadingContainer").classList.add("loaded");
     player.changeAnim(Extensions.findAnim(anims, "appear"));
@@ -107,8 +144,36 @@ document.addEventListener("keydown", e => {
         case "Space":
             e.preventDefault();
             player.xSpeed = 0;
+            if (!isBlackingOut) {
+                player.curFrame = 0;
+                player.changeAnim(Extensions.findAnim(anims, "attack"));
+                for (const i in enemies) {
+                    if (player.checkForCollision(enemies[i])) {
+                        enemies.splice(i, 1);
+                        player.curFrame = 0;
+                        let hitAnimIndex = Math.random() > 0.5 ? 2 : 1;
+                        // let hitAnimIndex = 2;
+                        player.changeAnim(Extensions.findAnim(anims, 'enemyHit' + hitAnimIndex));
+                        blackOut();
+                        setTimeout(() => enemies.push(createRandomEnemy()), 4000);
+                    }
+                }
+            }
+            break;
+        case "F1":
+            e.preventDefault();
             player.curFrame = 0;
-            player.changeAnim(Extensions.findAnim(anims, "attack"));
+            let hitAnimIndex = Math.random() > 0.5 ? 2 : 1;
+            // let hitAnimIndex = 2;
+            player.changeAnim(Extensions.findAnim(anims, 'enemyHit' + hitAnimIndex));
+            blackOut();
+            break;
+        case "KeyF":
+            e.preventDefault();
+            if (!isBlackingOut) {
+                player.curFrame = 0;
+                player.changeAnim(Extensions.findAnim(anims, 'ahegao'));
+            }
             break;
     }
 });
@@ -139,6 +204,10 @@ document.addEventListener("keyup", e => {
 
 setInterval(() => {
     player._animTick();
+    for (const i in enemies) {
+        enemies[i]._move(player.x + player.currentAnim.width / 2);
+        enemies[i]._animTick();
+    }
 }, 33);
 
 canv.addEventListener("contextmenu", e => { e.preventDefault() });
@@ -170,11 +239,32 @@ canv.addEventListener("touchend", e => {
 
 let globalOffset = [0, 30];
 
+let oldT = 0;
+
 function draw(t) {
+    // delta
+    var delta = t / 1000 - oldT;
+    oldT = t / 1000;
+
+    if (isBlackingOut) {
+        if (blackOpacity < 1) blackOpacity += 0.8 * delta;
+        else {
+            isBlackingOut = false;
+            setTimeout(blackIn, 500);
+            // blackIn()
+        }
+    }
+
+    if (isBlackingIn) {
+        if (blackOpacity > 0) blackOpacity -= 1.5 * delta;
+        else isBlackingIn = false;
+    }
+
     c.clearRect(0, 0, canv.width, canv.height);
     c.fillStyle = "rgba(0, 0, 0, 0.5)";
     c.fillRect(0, 0, canv.width, canv.height);
     if (loaded && player.currentAnim.available) {
+
         let sx = player.curFrame * player.currentAnim.width - player.currentAnim.origin[0] + globalOffset[0];
         let sy = player.currentAnim.origin[1] - globalOffset[1];
         let sw = player.currentAnim.width;
@@ -190,6 +280,16 @@ function draw(t) {
 
         c.drawImage(player.currentAnim.image, sx, sy, sw, sh, drawingX, 0, player.currentAnim.width, player.currentAnim.image.height);
 
+        c.restore();
+
+        for (const i in enemies) {
+            enemies[i]._render(c);
+        }
+
+        // blackout
+        c.save();
+        c.fillStyle = "rgba(0, 0, 0, " + blackOpacity + ")";
+        c.fillRect(0, 0, canv.width, canv.height)
         c.restore();
     }
 

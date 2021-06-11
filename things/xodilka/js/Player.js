@@ -67,4 +67,8 @@ export default class Player {
             value: value
         });
     }
+
+    checkForCollision(target) {
+        if (this.x + this.currentAnim.width >= target.x && this.x <= target.x + target.w) return true;
+    }
 }

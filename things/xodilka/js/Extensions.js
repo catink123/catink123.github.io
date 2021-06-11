@@ -25,7 +25,7 @@ export default class Extensions {
                 resolve(cache[path]);
             } else {
                 let imgID = Math.round(Math.random() * 1000);
-                loadTick({
+                if (loadTick) loadTick({
                     index: imgID,
                     value: 0
                 })
