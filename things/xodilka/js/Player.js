@@ -1,14 +1,16 @@
 import Extensions from './Extensions.js';
 import anims from './anims.js';
+import sfx from './sfx.js';
 
 export default class Player {
     constructor(x, y, speed, maxX) {
         this.x = x || 0;
+        this.savedX = this.x;
         this.y = y || 0;
         this.maxX = maxX;
         this.xSpeed = 0;
         this.setXSpeed = speed;
-        this.runSpeed = this.setXSpeed * 7;
+        this.runSpeed = this.setXSpeed * 2.5;
         this.isRunning = false;
         this.currentAnim = {
             name: "",
@@ -25,6 +27,13 @@ export default class Player {
 
     _animTick() {
         this.x += this.xSpeed;
+        if (Math.abs(this.x - this.savedX) >= 200) {
+            let index = Math.random() > 0.5 ? 2 : 1;
+            var sound = Extensions.findSound(sfx, 'footstep' + index);
+            sound.volume = 0.1;
+            sound.play();
+            this.savedX = this.x;
+        }
         if (this.x > this.maxX) this.x = -this.currentAnim.width;
         if (this.x < -this.currentAnim.width) this.x = this.maxX;
         if (this.currentAnim.available) {
@@ -43,6 +52,7 @@ export default class Player {
     }
 
     changeAnim(anim) {
+        this.savedX = this.x;
         if (this.currentAnim.name !== anim.name) {
             this.currentAnim.name = anim.name;
             this.currentAnim.available = false;

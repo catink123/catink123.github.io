@@ -2,6 +2,8 @@ import anims from './anims.js';
 import Extensions from './Extensions.js';
 import Player from './Player.js';
 import Enemy from './Enemy.js';
+import SoundEffect from './SoundEffect.js';
+import sfx from './sfx.js';
 
 let canv = document.querySelector("canvas");
 let showWall = false;
@@ -9,7 +11,7 @@ let blackOpacity = 0;
 let isBlackingOut = false;
 let isBlackingIn = false;
 
-let player = new Player(0, 0, 5, canv.width);
+let player = new Player(0, 0, 10, canv.width);
 let enemies = [];
 
 function updateCanvasSize() {
@@ -29,11 +31,11 @@ function createRandomEnemy() {
     // let speed = Math.floor(Math.random() * 10) + 1;
     let anim = Extensions.findAnim(anims, "enemyWalk");
     // let animWidth = anim.image.width / anim.frameCount;
-    let animWidth = 700;
+    // let animWidth = 700;
     let speed = 5;
     return new Enemy(
         // Math.floor(Math.random() * canv.width), 
-        Math.random() > 0.5 ? canv.width + animWidth : -animWidth,
+        null,
         (canv.height / 2) - (height / 2),
         canv.width, 
         100, 
@@ -152,8 +154,10 @@ document.addEventListener("keydown", e => {
                         enemies.splice(i, 1);
                         player.curFrame = 0;
                         let hitAnimIndex = Math.random() > 0.5 ? 2 : 1;
-                        // let hitAnimIndex = 2;
                         player.changeAnim(Extensions.findAnim(anims, 'enemyHit' + hitAnimIndex));
+                        var sound = Extensions.findSound(sfx, 'hit');
+                        sound.volume = 0.1;
+                        sound.play();
                         blackOut();
                         setTimeout(() => enemies.push(createRandomEnemy()), 4000);
                     }
@@ -162,11 +166,7 @@ document.addEventListener("keydown", e => {
             break;
         case "F1":
             e.preventDefault();
-            player.curFrame = 0;
-            let hitAnimIndex = Math.random() > 0.5 ? 2 : 1;
-            // let hitAnimIndex = 2;
-            player.changeAnim(Extensions.findAnim(anims, 'enemyHit' + hitAnimIndex));
-            blackOut();
+            canv.requestPointerLock()
             break;
         case "KeyF":
             e.preventDefault();
@@ -238,6 +238,7 @@ canv.addEventListener("touchend", e => {
 })
 
 let globalOffset = [0, 30];
+// let globalOffset = [0, -200]
 
 let oldT = 0;
 

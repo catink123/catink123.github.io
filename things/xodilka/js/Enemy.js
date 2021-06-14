@@ -2,7 +2,10 @@ import Extensions from './Extensions.js';
 
 export default class Enemy {
     constructor(x, y, maxX, w, h, speed, anim) {
-        this.x = x;
+        this.x = 0;
+        if (x !== null) {
+            x = x;
+        }
         this.maxX = maxX;
         this.y = y;
         this.w = w;
@@ -18,7 +21,9 @@ export default class Enemy {
             origin: [0, 0],
             waitUntilFinish: false
         };
-        this.changeAnim(anim);
+        this.changeAnim(anim, () => {
+            this.setUpCoords();
+        });
         this.curFrame = 0;
         this.animCache = {};
         this.flipped = false;
@@ -96,7 +101,7 @@ export default class Enemy {
 
     }
 
-    changeAnim(anim) {
+    changeAnim(anim, cb) {
         if (this.currentAnim.name !== anim.name) {
             this.currentAnim.name = anim.name;
             this.currentAnim.available = false;
@@ -109,6 +114,7 @@ export default class Enemy {
                 this.currentAnim.image = img;
                 this.currentAnim.width = this.currentAnim.image.width / this.currentAnim.frameCount;
                 this.currentAnim.available = true;
+                if (cb) cb();
             })
         }
     }
@@ -120,5 +126,9 @@ export default class Enemy {
             writable: true,
             value: value
         });
+    }
+
+    setUpCoords() {
+        this.x = Math.random() > 0.5 ? this.currentAnim.width + this.maxX : -this.currentAnim.width;
     }
 }

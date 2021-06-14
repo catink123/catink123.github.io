@@ -22,7 +22,49 @@
 <progress></progress>
 </div>
 
-<button class="help" onclick="alert('Moving on WASD, \'Ahegao\' on F, Hit on Space, running on Shift.')">?</button>
+<div class="menu">
+    <div class="main">
+        <h1>Xodilka</h1>
+        <div class="buttonContainer">
+            <button id="play">Play</button>
+            <button id="help">Help</button>
+            <button onclick="document.body.requestFullscreen()">Fullscreen</button>
+        </div>
+    </div>
+    
+    <div class="help hidden">
+        <h1>Controls</h1>
+        <p>
+            Moving - W, A, S, D<br>'Ahegao' - F<br>Hit - Space<br>Running - Shift
+        </p>
+        <button id="closeHelp">Back</button>
+    </div>
+    <script>
+        document.querySelector("#play").addEventListener("click", () => {
+            document.querySelector(".menu").classList.add("hidden");
+            setTimeout(() => document.querySelector(".menu").style.display = "none", 250)
+        })
+
+        document.addEventListener("keydown", e => {
+            switch (e.code) {
+                case "Escape":
+                    document.querySelector(".menu").style.display = "flex";
+                    document.querySelector(".menu").classList.remove("hidden");
+                    break;
+            }
+        })
+
+        document.querySelector('#help').addEventListener("click", () => {
+            document.querySelector('div.main').classList.add("hidden");
+            document.querySelector('div.help').classList.remove("hidden");
+        });
+
+        document.querySelector('#closeHelp').addEventListener("click", () => {
+            document.querySelector('div.help').classList.add("hidden");
+            document.querySelector('div.main').classList.remove("hidden");
+        });
+    </script>
+</div>
 
 <script type="module" src="js/main.js"></script>
 

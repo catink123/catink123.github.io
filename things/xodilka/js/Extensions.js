@@ -53,6 +53,13 @@ export default class Extensions {
         return animList.find(val => {
             if (val.name === animName) return true;
             return false;
-        })
+        });
+    }
+
+    static findSound(sfxList, soundEffectName) {
+        return sfxList.find(val => {
+            if (val.name === soundEffectName) return true;
+            return false;
+        }).data;
     }
 }
